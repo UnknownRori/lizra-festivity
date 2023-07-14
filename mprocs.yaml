@@ -1,0 +1,7 @@
+procs:
+  npm-dev:
+    shell: "npm run dev"
+  php-server:
+    shell: "php artisan serve"
+  ziggy-generate:
+    shell: "php artisan ziggy:generate"
