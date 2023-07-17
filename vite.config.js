@@ -15,7 +15,7 @@ export default defineConfig({
     resolve: {
         alias: {
             ziggy: 'vendor/tightenco/ziggy/dist/vue.es.js',
-            '@': fileURLToPath(new URL('./src', import.meta.url)),
+            '@': fileURLToPath(new URL('./resources/js', import.meta.url)),
         },
         name: name => {
             const pages = import.meta.glob('./Pages/**/*.vue', { eager: true })
