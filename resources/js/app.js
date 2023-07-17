@@ -7,6 +7,12 @@ import '../css/app.css';
 import './bootstrap';
 
 createInertiaApp({
+    progress: {
+        delay: 100,
+        includeCSS: true,
+        showSpinner: true,
+        color: 'red'
+    },
     resolve: name => {
         const pages = import.meta.glob('./Pages/**/*.vue', { eager: true })
         return pages[`./Pages/${name}.vue`]
