@@ -15,6 +15,7 @@ return new class extends Migration
         Schema::create('news', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->string('thumbnail', 255)->nullable();
             $table->string('title', 255);
             $table->text('body');
             $table->timestamps();
