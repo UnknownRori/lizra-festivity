@@ -5,9 +5,20 @@ import FooterVue from '@/Shared/Footer.vue';
 </script>
 
 <template>
-    <NavbarVue />
-    <main>
-        <slot />
-    </main>
-    <FooterVue />
+    <div class='container'>
+        <NavbarVue />
+        <main class='main-content'>
+            <slot />
+        </main>
+        <FooterVue />
+    </div>
 </template>
+
+<style scoped>
+.container {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-rows: auto 1fr 1fr;
+}
+</style>
