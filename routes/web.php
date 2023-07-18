@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\ContactUsController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,18 +17,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return inertia('HomePage');
-})->name('home');
-
-Route::get('/contact-us', function () {
-    return inertia('ContactUsPage');
-})->name('contact-us');
-
-Route::get('/about-us', function () {
-    return inertia('AboutUsPage');
-})->name('about-us');
-
+Route::get('/', HomeController::class)->name('home');
+Route::get('/contact-us', ContactUsController::class)->name('contact-us');
+Route::get('/about-us', AboutUsController::class)->name('about-us');
 Route::resource('news', NewsController::class)->only(['index', 'show']);
 
 Route::middleware('guest')->group(function () {
