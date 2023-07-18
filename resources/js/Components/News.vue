@@ -11,10 +11,8 @@ defineProps({
 
 <template>
     <Card class='flex md:flex-row sm:flex-col gap-2'>
-        <div>
-        </div>
         <img :src='$props.news.thumbnail ?? DummyImage' :alt='$props.news.title'
-            class='md:w-[300px] sm:w-full h-[300px] text-center object-cover rounded-md'>
+            class='md:w-[300px] sm:w-full h-[300px] text-center object-cover'>
         <div class='flex flex-col gap-1'>
             <h2 class='text-xl'>
                 {{ $props.news.title }}
@@ -24,7 +22,7 @@ defineProps({
                 {{ $props.news.body }}
             </p>
 
-            <div class='mt-8'>
+            <div class='mt-4'>
                 <OutlineButton type='anchor' href='home' class='text-black'>
                     Learn More
                 </OutlineButton>
