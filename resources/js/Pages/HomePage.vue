@@ -22,7 +22,7 @@ import OutlinePrimaryButton from '@/Shared/OutlinePrimaryButton.vue';
                     <h2>The Power of Imagination Make us Awesome</h2>
                 </div>
                 <div class="flex flex-row gap-2">
-                    <OutlinePrimaryButton href='home' type='anchor'>
+                    <OutlinePrimaryButton href='about-us' type='anchor'>
                         Learn More
                     </OutlinePrimaryButton>
                     <PrimaryButton>
