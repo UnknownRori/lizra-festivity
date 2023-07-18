@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     content: [
@@ -7,6 +9,9 @@ module.exports = {
     ],
     theme: {
         extend: {
+            fontFamily: {
+                'sans': ['Averia Sans Libre', ...defaultTheme.fontFamily.sans]
+            },
             screens: {
                 'sm': '240px',
                 'md': '640px',
