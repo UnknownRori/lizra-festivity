@@ -8,6 +8,11 @@ import LayoutVue from '@/Layout/Layout.vue';
 import CardVue from '@/Shared/Card.vue';
 import PrimaryButton from '@/Shared/PrimaryButton.vue';
 import OutlinePrimaryButton from '@/Shared/OutlinePrimaryButton.vue';
+import NewsLists from '../Components/NewsLists.vue';
+
+defineProps({
+    news: Array
+});
 </script>
 
 <template>
@@ -22,7 +27,7 @@ import OutlinePrimaryButton from '@/Shared/OutlinePrimaryButton.vue';
                     <h2>The Power of Imagination Make us Awesome</h2>
                 </div>
                 <div class="flex flex-row gap-2">
-                    <OutlinePrimaryButton href='about-us' type='anchor'>
+                    <OutlinePrimaryButton href='about-us' type='anchor' class='text-white'>
                         Learn More
                     </OutlinePrimaryButton>
                     <PrimaryButton>
@@ -32,7 +37,7 @@ import OutlinePrimaryButton from '@/Shared/OutlinePrimaryButton.vue';
             </div>
         </div>
         <main class='p-12'>
-            <div class="flex sm:flex-col lg:flex-row gap-2 justify-evenly">
+            <section class="flex sm:flex-col lg:flex-row gap-2 justify-evenly">
                 <CardVue v-for='MottoList in MottoLists' class='flex flex-row w-full gap-2 p-2'>
                     <div class="flex w-[104px]">
                         <img :src='MottoList.src' :alt='MottoList.alt' class='w-[64px] h-[64px]'>
@@ -47,7 +52,14 @@ import OutlinePrimaryButton from '@/Shared/OutlinePrimaryButton.vue';
                         </p>
                     </div>
                 </CardVue>
-            </div>
+            </section>
+
+            <section class='flex flex-col gap-4'>
+                <h2 class='text-3xl underline'>
+                    Recent Events
+                </h2>
+                <NewsLists :news='$props.news' />
+            </section>
         </main>
     </LayoutVue>
 </template>
