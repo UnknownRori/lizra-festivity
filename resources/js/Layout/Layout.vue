@@ -19,6 +19,7 @@ import FooterVue from '@/Shared/Footer.vue';
     min-height: 100vh;
     max-width: 100vw;
     display: grid;
-    grid-template-rows: auto 1fr 1fr;
+    grid-template-rows: auto 1fr auto;
+    overflow-x: hidden;
 }
 </style>
