@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\PublishStatus;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -19,6 +20,7 @@ return new class extends Migration
             $table->string('thumbnail', 255)->nullable();
             $table->string('title', 255);
             $table->text('body');
+            $table->enum('publush_status', PublishStatus::toArray())->default(PublishStatus::Draft);
             $table->timestamps();
         });
     }
