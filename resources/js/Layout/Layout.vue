@@ -7,17 +7,17 @@ import FooterVue from '@/Shared/Footer.vue';
 <template>
     <div class='container'>
         <NavbarVue />
-        <main class='main-content'>
+        <div class='main-content'>
             <slot />
-        </main>
+        </div>
         <FooterVue />
     </div>
 </template>
 
 <style scoped>
 .container {
-    height: 100vh;
-    width: 100vw;
+    min-height: 100vh;
+    max-width: 100vw;
     display: grid;
     grid-template-rows: auto 1fr 1fr;
 }
