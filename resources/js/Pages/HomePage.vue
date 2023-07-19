@@ -8,7 +8,8 @@ import LayoutVue from '@/Layout/Layout.vue';
 import CardVue from '@/Shared/Card.vue';
 import PrimaryButton from '@/Shared/PrimaryButton.vue';
 import OutlinePrimaryButton from '@/Shared/OutlinePrimaryButton.vue';
-import NewsLists from '../Components/NewsLists.vue';
+import NewsLists from '@/Components/NewsLists.vue';
+import ConsultForm from '@/Components/ConsultForm.vue';
 
 defineProps({
     news: Array
@@ -36,7 +37,7 @@ defineProps({
                 </div>
             </div>
         </div>
-        <main class='p-12'>
+        <main class='flex flex-col gap-6 p-12'>
             <section class="flex sm:flex-col lg:flex-row gap-2 justify-evenly">
                 <CardVue v-for='MottoList in MottoLists' class='flex flex-row w-full gap-2 p-2'>
                     <div class="flex w-[104px]">
@@ -59,12 +60,22 @@ defineProps({
                     Recent Events
                 </h2>
                 <NewsLists :news='$props.news' />
+                <div class="flex justify-center">
+                    <PrimaryButton :href='route("news.index")' name='news.index' type='anchor'>
+                        Read More
+                    </PrimaryButton>
+                </div>
+            </section>
+
+            <section class='flex sm:flex-col lg:flex-row gap-4 border-2 border-gray-200 shadow-md rounded-md p-2'>
+                <ConsultForm />
             </section>
         </main>
     </LayoutVue>
 </template>
 
 <style scoped>
+/* <!-- TODO : Fix this later -->*/
 .front {
     background-image: url('../Assets/Images/london-con.jpg');
     background-position: center;
