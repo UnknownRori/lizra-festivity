@@ -55,8 +55,7 @@ import InputVue from '@/Shared/Input.vue';
         <div class='flex flex-col'>
             <label for="message">Message</label>
             <textarea name="message" id="message" cols="10" rows="5" class='border-2 border-gray-200 p-2 rounded-md'
-                placeholder='Enter your message' required>
-            </textarea>
+                placeholder='Enter your message' required></textarea>
         </div>
         <div class='ml-auto'>
             <button type='submit' class='bg-red-700 hover:bg-red-500 duration-500 rounded-md text-white p-2'>
