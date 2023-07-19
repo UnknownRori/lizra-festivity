@@ -23,7 +23,7 @@ defineProps({
             </p>
 
             <div class='mt-4'>
-                <OutlineButton type='anchor' href='home' class='text-black'>
+                <OutlineButton type='anchor' :href='route("news.show", { slug: $props.news.slug })' class='text-black'>
                     Learn More
                 </OutlineButton>
             </div>

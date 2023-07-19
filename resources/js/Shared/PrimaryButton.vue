@@ -4,6 +4,7 @@ import Link from '@/Shared/Link.vue';
 defineProps({
     class: String,
     href: String,
+    name: String,
     type: String,
 })
 
@@ -12,7 +13,7 @@ defineEmits(['click']);
 </script>
 
 <template>
-    <Link v-if='$props.type == "anchor"' @click='$emit("click")' :name='$props.href'
+    <Link v-if='$props.type == "anchor"' @click='$emit("click")' :href='$props.href' :name='$props.name'
         :class='`bg-red-700 hover:bg-red-500 duration-500 rounded-md text-white p-2 ${$props.class}`'>
     <slot />
     </Link>

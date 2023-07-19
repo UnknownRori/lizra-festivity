@@ -11,22 +11,22 @@ import Link from '@/Shared/LinkNavbar.vue';
         <div class='flex items-center mx-4'>
             <ul class='flex gap-2'>
                 <li>
-                    <Link name='home'>
+                    <Link :href='route("home")' name='home'>
                     Home
                     </Link>
                 </li>
                 <li>
-                    <Link name='news.index'>
+                    <Link :href='route("news.index")' name='news.index'>
                     News
                     </Link>
                 </li>
                 <li>
-                    <Link name='contact-us'>
+                    <Link :href='route("contact-us")' name='contact-us'>
                     Contact us
                     </Link>
                 </li>
                 <li>
-                    <Link name='about-us'>
+                    <Link :href='route("about-us")' name='about-us'>
                     About us
                     </Link>
                 </li>
