@@ -17,7 +17,7 @@ defineProps({
 </script>
 
 <template>
-    <Head title="Hello, World" />
+    <Head title="Home" />
     <LayoutVue>
         <div class='relative h-[400px]'>
             <div :class='`front h-[400px] w-full brightness-[25%] absolute -z-10 bg-[url(${LondonCon})]`'>
