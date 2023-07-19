@@ -20,22 +20,22 @@ import SendIcon from '@/Assets/Icons/send.png';
             </h2>
             <ul>
                 <li class='hover:translate-x-8 ease-in-out duration-500'>
-                    <Link name='home'>
+                    <Link :href='route("home")' name='home'>
                     Home
                     </Link>
                 </li>
                 <li class='hover:translate-x-8 ease-in-out duration-500'>
-                    <Link name='news.index'>
+                    <Link :href='route("news.index")' name='news.index'>
                     News
                     </Link>
                 </li>
                 <li class='hover:translate-x-8 ease-in-out duration-500'>
-                    <Link name='contact-us'>
+                    <Link :href='route("contact-us")' name='contact-us'>
                     Contact us
                     </Link>
                 </li>
                 <li class='hover:translate-x-8 ease-in-out duration-500'>
-                    <Link name='about-us'>
+                    <Link :href='route("about-us")' name='about-us'>
                     About us
                     </Link>
                 </li>
