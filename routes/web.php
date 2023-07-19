@@ -20,12 +20,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', HomeController::class)->name('home');
 Route::get('/contact-us', ContactUsController::class)->name('contact-us');
 Route::get('/about-us', AboutUsController::class)->name('about-us');
-Route::resource('news', NewsController::class)->only(['index', 'show']);
+Route::resource('news', NewsController::class)->only(['index', 'show'])->scoped([
+    'news' => 'slug',
+]);
 
 Route::middleware('guest')->group(function () {
     //
 });
 
 Route::middleware('auth')->group(function () {
-    Route::resource('news', NewsController::class)->except(['index', 'show']);
+    Route::resource('news', NewsController::class)->except(['index', 'show'])->scoped([
+        'news' => 'slug',
+    ]);
 });
