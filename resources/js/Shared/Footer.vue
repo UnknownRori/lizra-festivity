@@ -50,7 +50,7 @@ import SendIcon from '@/Assets/Icons/send.png';
                     <label for="subscribe" class='text-gray-400'>Subscribe to our newsletter</label>
                     <div class="flex bg-gray-900 border-gray-800 rounded-md justify-evenly">
                         <input type="email" placeholder='Type your email' name='mail'
-                            class='text-white rounded p-1 bg-transparent w-full p-2'>
+                            class='text-white rounded bg-transparent w-full p-2'>
                         <button type="submit"
                             class='flex bg-gradient-to-r to-blue-600 from-pink-700 w-12 justify-center rounded-e-md'>
                             <img :src='SendIcon' alt="Send" class='w-8'>
