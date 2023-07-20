@@ -10,6 +10,7 @@ import PrimaryButton from '@/Shared/PrimaryButton.vue';
 import OutlinePrimaryButton from '@/Shared/OutlinePrimaryButton.vue';
 import NewsLists from '@/Components/NewsLists.vue';
 import ConsultForm from '@/Components/ConsultForm.vue';
+import JumpToTopVue from '@/Components/JumpToTop.vue';
 
 defineProps({
     news: Array
@@ -72,6 +73,7 @@ defineProps({
             </section>
         </main>
     </LayoutVue>
+    <JumpToTopVue />
 </template>
 
 <style scoped>
