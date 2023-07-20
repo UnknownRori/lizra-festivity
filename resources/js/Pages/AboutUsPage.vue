@@ -6,6 +6,7 @@ import ConceptLists from '@/Data/ConceptLists';
 import PresentationEventImg from '@/Assets/Images/presentation-event.jpg';
 import EventImg from '@/Assets/Images/event.jpg';
 import DownloadImg from '@/Assets/Icons/download.png';
+import WeddingImg from '@/Assets/Images/wedding-2.jpg';
 
 import Layout from '@/Layout/Layout.vue';
 import CardVue from '@/Shared/Card.vue';
@@ -64,9 +65,9 @@ import PrimaryButton from '@/Shared/PrimaryButton.vue';
                 </div>
             </section>
 
-            <section class='flex lg:flex-row sm:flex-col gap-2 p-14'>
+            <section class='flex lg:flex-row sm:flex-col gap-2 px-14 py-2'>
                 <CardVue v-for='concept in ConceptLists'
-                    class='flex flex-col items-center w-full lg:h-72 sm:h-48 text-center'>
+                    class='flex flex-col items-center justify-center w-full lg:h-72 sm:h-48 text-center'>
                     <img :src='concept.src' :alt='concept.alt' class='w-[64px]'>
                     <h2 class='text-3xl font-bold'>
                         {{ concept.title }}
@@ -75,6 +76,55 @@ import PrimaryButton from '@/Shared/PrimaryButton.vue';
                         {{ concept.body }}
                     </p>
                 </CardVue>
+            </section>
+
+            <section class='flex flex-col gap-4 px-14 py-2'>
+                <div class='flex lg:flex-row sm:flex-col gap-2'>
+                    <header class='w-full'>
+                        <h5 class='text-pink-500 tracking-widest text-lg'>
+                            Why choose us?
+                        </h5>
+                        <h2 class='text-2xl tracking-tight'>
+                            There are many company but why
+                        </h2>
+                        <h2 class='text-pink-500 text-2xl tracking-tight'>
+                            choose us
+                        </h2>
+                    </header>
+                    <section>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias nulla, ipsa unde amet eveniet
+                            dicta expedita repellat quos sint voluptate consectetur nostrum voluptates.
+                        </p>
+                    </section>
+                </div>
+                <div class='flex lg:flex-row sm:flex-col items-center gap-4'>
+                    <section>
+                        <CardVue>
+                            <h2 class='text-2xl font-bold'>
+                                Service Excellence
+                            </h2>
+
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. A quam autem enim natus hic
+                                deleniti ipsam eum optio.
+                            </p>
+                        </CardVue>
+                        <CardVue>
+                            <h2 class='text-2xl font-bold'>
+                                Expert Team
+                            </h2>
+
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. A quam autem enim natus hic
+                                deleniti ipsam eum optio.
+                            </p>
+                        </CardVue>
+                    </section>
+                    <section class='lg:w-3/4 sm:w-full'>
+                        <img :src='WeddingImg' alt="Wedding Image" class='rounded-lg object-contain'>
+                    </section>
+                </div>
             </section>
         </main>
     </Layout>
