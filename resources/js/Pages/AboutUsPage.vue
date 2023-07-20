@@ -3,7 +3,6 @@ import { Head } from '@inertiajs/vue3'
 
 import ConceptLists from '@/Data/ConceptLists';
 
-import PresentationEventImg from '@/Assets/Images/presentation-event.jpg';
 import EventImg from '@/Assets/Images/event.jpg';
 import DownloadImg from '@/Assets/Icons/download.png';
 import WeddingImg from '@/Assets/Images/wedding-2.jpg';
@@ -18,7 +17,8 @@ import PrimaryButton from '@/Shared/PrimaryButton.vue';
     <Head title="About us" />
     <Layout>
         <div class='relative h-[400px]'>
-            <div :class='`front h-[400px] w-full brightness-[25%] absolute -z-10 bg-[url(${PresentationEventImg})]`'>
+            <div
+                :class='`front h-[400px] w-full brightness-[25%] absolute -z-10 bg-[url(@/Assets/Images/presentation-event.jpg)] bg-no-repeat bg-center`'>
                 <!--  -->
             </div>
             <div class='flex flex-col justify-center items-center h-[400px] gap-4 text-white'>
@@ -91,7 +91,7 @@ import PrimaryButton from '@/Shared/PrimaryButton.vue';
                             choose us
                         </h2>
                     </header>
-                    <section>
+                    <section class='lg:w-9/12 sm:w-full'>
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias nulla, ipsa unde amet eveniet
                             dicta expedita repellat quos sint voluptate consectetur nostrum voluptates.
@@ -130,12 +130,3 @@ import PrimaryButton from '@/Shared/PrimaryButton.vue';
     </Layout>
     <JumpToTopVue />
 </template>
-
-<style scoped>
-/* <!-- TODO : Fix this later -->*/
-.front {
-    background-image: url('../Assets/Images/presentation-event.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-}
-</style>

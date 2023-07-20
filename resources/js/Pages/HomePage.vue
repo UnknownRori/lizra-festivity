@@ -1,7 +1,6 @@
 <script setup lang='ts'>
 import { Head } from '@inertiajs/vue3'
 
-import LondonCon from '@/Assets/Images/london-con.jpg';
 import MottoLists from '../Data/MottoLists.ts';
 
 import LayoutVue from '@/Layout/Layout.vue';
@@ -20,7 +19,8 @@ defineProps<{ news: Array<NewsType> }>();
     <Head title="Home" />
     <LayoutVue>
         <div class='relative h-[400px]'>
-            <div :class='`front h-[400px] w-full brightness-[25%] absolute -z-10 bg-[url(${LondonCon})]`'>
+            <div
+                :class='`front h-[400px] w-full brightness-[25%] absolute -z-10 bg-[url(@/Assets/Images/london-con.jpg)] bg-no-repeat bg-center`'>
                 <!--  -->
             </div>
             <div class='flex flex-col justify-center items-center h-[400px] gap-4'>
@@ -74,12 +74,3 @@ defineProps<{ news: Array<NewsType> }>();
     </LayoutVue>
     <JumpToTopVue />
 </template>
-
-<style scoped>
-/* <!-- TODO : Fix this later -->*/
-.front {
-    background-image: url('../Assets/Images/london-con.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-}
-</style>
