@@ -14,11 +14,15 @@ defineProps<{ news: NewsType }>();
         <img :src='$props.news.thumbnail ?? DummyImage' :alt='$props.news.title'
             class='md:w-[300px] sm:w-full h-[300px] text-center object-cover'>
         <div class='flex flex-col gap-1'>
-            <h2 class='text-xl'>
+            <h2 class='text-2xl font-bold'>
                 {{ $props.news.title }}
             </h2>
 
-            <p>
+            <span class='text-sm'>
+                {{ $moment($props.news.created_at).fromNow() }}
+            </span>
+
+            <p class='text-lg'>
                 {{ $props.news.body }}
             </p>
 
