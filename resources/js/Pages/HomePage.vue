@@ -1,8 +1,8 @@
-<script setup>
+<script setup lang='ts'>
 import { Head } from '@inertiajs/vue3'
 
 import LondonCon from '@/Assets/Images/london-con.jpg';
-import MottoLists from '../Data/MottoLists.js';
+import MottoLists from '../Data/MottoLists.ts';
 
 import LayoutVue from '@/Layout/Layout.vue';
 import CardVue from '@/Shared/Card.vue';
@@ -11,10 +11,9 @@ import OutlinePrimaryButton from '@/Shared/OutlinePrimaryButton.vue';
 import NewsLists from '@/Components/NewsLists.vue';
 import ConsultForm from '@/Components/ConsultForm.vue';
 import JumpToTopVue from '@/Components/JumpToTop.vue';
+import NewsType from '@/types/NewsType';
 
-defineProps({
-    news: Array
-});
+defineProps<{ news: Array<NewsType> }>();
 </script>
 
 <template>

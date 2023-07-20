@@ -16,6 +16,7 @@
     "dependencies": {
         "@inertiajs/vue3": "^1.0.9",
         "@sniptt/monads": "^0.5.10",
+        "@types/ziggy-js": "^1.3.2",
         "@vitejs/plugin-vue": "^4.2.3",
         "safety-match": "^0.4.4",
         "typescript": "^5.1.6"

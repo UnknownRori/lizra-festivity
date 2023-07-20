@@ -12,7 +12,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        //
+        dd(1);
     }
 
     /**
@@ -36,7 +36,7 @@ class NewsController extends Controller
      */
     public function show(News $news)
     {
-        //
+        dd($news);
     }
 
     /**

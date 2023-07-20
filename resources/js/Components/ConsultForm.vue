@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang='ts'>
 import LocationIcon from '@/Assets/Icons/location.png';
 import MailIcon from '@/Assets/Icons/mail.png';
 

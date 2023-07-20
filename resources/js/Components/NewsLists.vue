@@ -1,9 +1,10 @@
-<script setup>
+<script setup lang='ts'>
+import NewsType from '@/types/NewsType';
 import News from './News.vue'
 
-defineProps({
-    news: Array
-});
+defineProps<{
+    news: Array<NewsType>
+}>();
 </script>
 
 <template>

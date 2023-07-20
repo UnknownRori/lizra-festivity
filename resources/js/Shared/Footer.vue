@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang='ts'>
 import Link from './LinkFooter.vue';
 
 import SocialMediaLists from '@/Data/SocialMediaLists.js';

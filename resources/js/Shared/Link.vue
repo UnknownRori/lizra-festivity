@@ -1,16 +1,17 @@
-<script setup>
+<script setup lang="ts">
+import { Method } from '@inertiajs/core';
 import { Link } from '@inertiajs/vue3';
 
-defineProps({
-    href: String,
-    name: String,
-    class: String,
-    method: String,
-    as: String,
-    type: String,
-    class_active: String,
-    class_inactive: String,
-})
+defineProps<{
+    href: string,
+    name: string,
+    class?: string,
+    method?: Method,
+    as?: string,
+    type?: string,
+    class_active?: string,
+    class_inactive?: string,
+}>();
 </script>
 
 <template>

@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang='ts'>
 import Title from '@/Assets/title-light.png';
 import Link from '@/Shared/LinkNavbar.vue';
 </script>

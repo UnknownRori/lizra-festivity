@@ -6,7 +6,7 @@ export default function () {
         y: 0,
     });
 
-    function update(event) {
+    function update() {
         position.x = window.scrollX;
         position.y = window.scrollY;
     }

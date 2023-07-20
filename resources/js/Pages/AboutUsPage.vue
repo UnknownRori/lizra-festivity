@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang='ts'>
 import { Head } from '@inertiajs/vue3'
 
 import PresentationEventImg from '@/Assets/Images/presentation-event.jpg';

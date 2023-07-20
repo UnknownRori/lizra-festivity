@@ -1,10 +1,19 @@
-<script setup>
-defineProps(['modelValue', 'type', 'placeholder', 'class', 'id']);
-defineEmits(['update:modelValue'])
+<script setup lang='ts'>
+defineProps<{
+    type?: string,
+    class?: string,
+    id?: string,
+    modelValue?: any,
+    placeholder?: string,
+}>();
+
+defineEmits<{
+    (e: 'update:modelValue', value: any): void
+}>();
 </script>
 
 <template>
-    <input :id='$props.id' :type='$props.type' ref='input' @input="$emit('update:modelValue', $event.target.value)"
-        :placeholder='$props.placeholder' :value='modelValue'
-        :class='`border-2 border-gray-200 p-2 rounded-md ${$props.class}`'>
+    <input :id='$props.id' :type='$props.type ?? "text"' ref='input'
+        @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)" :placeholder='$props.placeholder'
+        :value='modelValue' :class='`border-2 border-gray-200 p-2 rounded-md ${$props.class}`'>
 </template>

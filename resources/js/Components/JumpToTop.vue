@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang='ts'>
 import { watch, ref } from 'vue';
 
 import useScrollPosition from '../Composable/useScrollPosition.js';

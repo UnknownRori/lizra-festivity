@@ -1,7 +1,6 @@
-<script setup>
+<script setup lang='ts'>
 import NavbarVue from '@/Shared/Navbar.vue';
 import FooterVue from '@/Shared/Footer.vue';
-
 </script>
 
 <template>

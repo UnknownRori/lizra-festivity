@@ -1,12 +1,12 @@
-<script setup>
+<script setup lang='ts'>
 import DummyImage from '@/Assets/Images/presentation-event.jpg';
 
 import Card from '@/Shared/Card.vue';
 import OutlineButton from '@/Shared/OutlinePrimaryButton.vue';
 
-defineProps({
-    news: Object
-});
+import type NewsType from '@/types/NewsType';
+
+defineProps<{ news: NewsType }>();
 </script>
 
 <template>
