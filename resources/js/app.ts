@@ -2,6 +2,7 @@ import { createApp, h } from 'vue'
 import { createInertiaApp } from '@inertiajs/vue3'
 import { ZiggyVue } from 'ziggy';
 import { Ziggy } from './ziggy';
+import Moment from './Plugins/Moment';
 
 import '../css/app.css';
 import './bootstrap';
@@ -21,6 +22,7 @@ createInertiaApp({
         createApp({ render: () => h(App, props) })
             .use(plugin)
             .use(ZiggyVue, Ziggy)
+            .use(Moment)
             .mount(el);
     },
 })
