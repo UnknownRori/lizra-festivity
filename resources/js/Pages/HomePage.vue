@@ -39,8 +39,8 @@ defineProps<{ news: Array<NewsType> }>();
         </div>
         <main class='flex flex-col gap-6 p-12'>
             <section class="flex sm:flex-col lg:flex-row gap-2 justify-evenly">
-                <CardVue v-for='MottoList in MottoLists' class='flex flex-row w-full gap-2 p-2'>
-                    <div class="flex w-[104px]">
+                <CardVue v-for='MottoList in MottoLists' class='flex flex-row w-full gap-2 p-4'>
+                    <div class="flex w-[104px] items-center justify-center">
                         <img :src='MottoList.src' :alt='MottoList.alt' class='w-[64px] h-[64px]'>
                     </div>
                     <div class="flex flex-col">
