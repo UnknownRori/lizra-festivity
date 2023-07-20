@@ -9,7 +9,7 @@ import SendIcon from '@/Assets/Icons/send.png';
 </script>
 
 <template>
-    <footer class='md:flex p-6 gap-2 bg-black text-white'>
+    <footer class='md:flex px-6 py-8 gap-2 bg-black text-white'>
         <div class="p-2 flex flex-col gap-2 w-full">
             <img :src='Title' alt="Lizra Festivity" class='w-64'>
             <h2>Lizra Corporation&copy;2023</h2>
