@@ -11,7 +11,7 @@ const collapsibleNavStyle = ref(collapsed);
 
 function collapseNavbar(state: Ref<State>) {
     if (state.value == State.On) {
-        collapsibleNavStyle.value = 'sm:opacity-100 sm:translate-y-32 sm:pointer-events-auto';
+        collapsibleNavStyle.value = 'sm:opacity-100 sm:translate-y-36 sm:pointer-events-auto';
 
         return;
     }
