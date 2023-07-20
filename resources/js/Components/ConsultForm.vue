@@ -2,10 +2,8 @@
 import LocationIcon from '@/Assets/Icons/location.png';
 import MailIcon from '@/Assets/Icons/mail.png';
 
+import CardVue from '@/Shared/Card.vue';
 import InputVue from '@/Shared/Input.vue';
-
-
-
 </script>
 <template>
     <div class='flex flex-col gap-4 justify-center w-full'>
