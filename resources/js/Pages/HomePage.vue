@@ -1,7 +1,7 @@
 <script setup lang='ts'>
 import { Head } from '@inertiajs/vue3'
 
-import MottoLists from '../Data/MottoLists.ts';
+import MottoLists from '../Data/MottoLists';
 
 import LayoutVue from '@/Layout/Layout.vue';
 import CardVue from '@/Shared/Card.vue';
