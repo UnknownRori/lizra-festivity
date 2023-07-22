@@ -4,6 +4,7 @@ import Instagram from '@/Assets/Icons/instagram.png'
 import Facebook from '@/Assets/Icons/facebook.png'
 import Twitter from '@/Assets/Icons/twitter.png'
 import Github from '@/Assets/Icons/github.webp'
+import Linkedin from '@/Assets/Icons/linkedin.webp'
 
 export default [
     { src: Whatsapp, alt: 'Whatsapp', href: '#' },
@@ -12,4 +13,5 @@ export default [
     { src: Facebook, alt: 'Facebook', href: '#' },
     { src: Twitter, alt: 'Facebook', href: 'https://twitter.com/UnknownRori' },
     { src: Github, alt: 'Github', href: 'https://github.com/UnknownRori' },
+    { src: Linkedin, alt: 'Linkedin', href: 'https://www.linkedin.com/in/unknownrori' },
 ];
