@@ -30,8 +30,8 @@ function collapseNavbar(state: Ref<State>) {
             <HamburgerButton @click='collapseNavbar' class='w-12 md:hidden' />
         </div>
         <div
-            :class='`z-10 sm:absolute md:relative flex md:items-center sm:items-start
-            md:mx-4 sm:mx-0 sm:px-24 sm:pb-3 md:pb-0 md:px-0 sm:bottom-0 sm:left-0 sm:w-full md:opacity-100 md:pointer-events-auto rounded-md bg-slate-100 sm:shadow-sm duration-500 ${collapsibleNavStyle}`'>
+            :class='`z-10 sm:absolute md:relative flex md:items-center sm:items-start md:bg-transparent
+            md:mx-4 sm:mx-0 sm:px-24 sm:pb-3 md:pb-0 md:px-0 sm:bottom-0 sm:left-0 sm:w-full md:opacity-100 md:pointer-events-auto rounded-md sm:bg-slate-100 sm:shadow-sm duration-500 ${collapsibleNavStyle}`'>
             <ul class='flex sm:flex-col md:flex-row gap-2'>
                 <li>
                     <Link :href='route("home")' name='home'>
