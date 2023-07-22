@@ -35,7 +35,7 @@ composer install
 php artisan key:generate
 
 # Start the server
-php artisan serve
+php artisan serve & npm run dev
 ```
 
 Or using powershell
@@ -59,12 +59,21 @@ composer install
 php artisan key:generate
 
 # Start the server
-php artisan serve
+php artisan serve 
+
+# Start another powershell
+npm run dev
 ```
 
 ## 🚀 Usage
 
-Start artisan server and you are done, hosting? nah, figure it yourself
+```bash
+# If you have mprocs
+mprocs
+
+# If you don't have just start the server normaly
+php artisan serve & npm run dev
+```
 
 ## 🌟 Contribution
 
