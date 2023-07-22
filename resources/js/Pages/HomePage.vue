@@ -37,7 +37,7 @@ defineProps<{ news: Array<NewsType> }>();
                 </div>
             </div>
         </div>
-        <main class='flex flex-col gap-6 p-12'>
+        <main class='flex flex-col gap-12 p-12'>
             <section class="flex sm:flex-col lg:flex-row gap-2 justify-evenly">
                 <CardVue v-for='MottoList in MottoLists' class='flex flex-row w-full gap-2 p-4'>
                     <div class="flex w-[104px] items-center justify-center">
@@ -67,8 +67,13 @@ defineProps<{ news: Array<NewsType> }>();
                 </div>
             </section>
 
-            <section class='flex sm:flex-col lg:flex-row gap-4 border-2 border-gray-200 shadow-md rounded-md p-2'>
-                <ConsultForm />
+            <section class='flex flex-col gap-4'>
+                <h2 class='lg:w-96 sm:w-full tracking-widest text-2xl font-bold'>
+                    Our client,want activities to run smoothly and successfully
+                </h2>
+                <div class="flex sm:flex-col lg:flex-row gap-4 shadow-md rounded-md p-2">
+                    <ConsultForm />
+                </div>
             </section>
         </main>
     </LayoutVue>
