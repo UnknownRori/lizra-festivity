@@ -27,12 +27,20 @@ class AppServiceProvider extends ServiceProvider
 
         App::setLocale('id');
 
-        Blade::if('admin', function () {
-            return auth()->user()->role == Role::Admin;
+        // More generic @role
+        Blade::if('role', function (array $roles) {
+            foreach ($roles as $role) {
+                if (auth()->user()->role->value == $role) {
+                    return true;
+                }
+            }
+
+            return false;
         });
 
-        Blade::if('editor', function () {
-            return auth()->user()->role == Role::Editor;
+        // Specified only for admin
+        Blade::if('admin', function () {
+            return auth()->user()->role == Role::Admin;
         });
     }
 }
