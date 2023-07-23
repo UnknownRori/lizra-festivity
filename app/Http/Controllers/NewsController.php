@@ -4,15 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Models\News;
 use Illuminate\Http\Request;
+use Inertia\Response;
 
 class NewsController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): Response
     {
-        dd(1);
+        return inertia('News/Index', [
+            'news' => News::select([
+                'slug', 'thumbnail', 'title',
+                'body', 'created_at', 'updated_at'
+            ])->paginate(6),
+        ]);
     }
 
     /**
