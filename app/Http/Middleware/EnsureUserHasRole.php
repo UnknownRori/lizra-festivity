@@ -13,11 +13,13 @@ class EnsureUserHasRole
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next, string $role): Response
+    public function handle(Request $request, Closure $next, ...$roles): Response
     {
-        if ($request->user()->role->value != $role)
-            abort(404);
+        foreach ($roles as $role) {
+            if ($request->user()->role->value == $role)
+                return $next($request);
+        }
 
-        return $next($request);
+        return abort(404);
     }
 }
