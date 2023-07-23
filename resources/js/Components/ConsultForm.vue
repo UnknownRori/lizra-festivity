@@ -1,39 +1,8 @@
 <script setup lang='ts'>
-import LocationIcon from '@/Assets/Icons/location.png';
-import MailIcon from '@/Assets/Icons/mail.png';
-
 import CardVue from '@/Shared/Card.vue';
 import InputVue from '@/Shared/Input.vue';
 </script>
 <template>
-    <div class='flex flex-col gap-4 justify-center w-full'>
-        <CardVue class='flex flex-row items-center p-4 gap-4'>
-            <div class='bg-pink-600 rounded-full p-2 w-18 h-18'>
-                <img :src='LocationIcon' alt="Location icon">
-            </div>
-            <div>
-                <h2 class='text-3xl'>
-                    Head offices
-                </h2>
-                <p>
-                    Gedung Lorem, Jl. Subagio No. 69, Indonesia
-                </p>
-            </div>
-        </CardVue>
-        <CardVue class='flex flex-row items-center p-4 gap-4'>
-            <div class='bg-pink-600 rounded-full p-2 w-18 h-18'>
-                <img :src='MailIcon' alt="Mail icon" class='w-12'>
-            </div>
-            <div>
-                <h2 class='text-3xl'>
-                    Mail for information
-                </h2>
-                <p>
-                    marketing.lizra@mail.com
-                </p>
-            </div>
-        </CardVue>
-    </div>
     <form action="#" method="post" class='flex flex-col gap-2 w-full p-2 m-2'>
         <!-- TODO : Bind to the useForm() -->
         <div class='flex gap-2'>

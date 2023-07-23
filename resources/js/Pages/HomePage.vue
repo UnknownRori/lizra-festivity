@@ -1,6 +1,9 @@
 <script setup lang='ts'>
 import { Head } from '@inertiajs/vue3'
 
+import LocationIcon from '@/Assets/Icons/location.png';
+import MailIcon from '@/Assets/Icons/mail.png';
+
 import MottoLists from '../Data/MottoLists';
 
 import LayoutVue from '@/Layout/Layout.vue';
@@ -72,6 +75,34 @@ defineProps<{ news: Array<NewsType> }>();
                     Our client,want activities to run smoothly and successfully
                 </h2>
                 <div class="flex sm:flex-col lg:flex-row gap-4 shadow-md rounded-md p-2">
+                    <div class='flex flex-col gap-4 justify-evenly w-full'>
+                        <CardVue class='flex flex-row items-center p-4 gap-4'>
+                            <div class='bg-pink-600 rounded-full p-2 w-18 h-18'>
+                                <img :src='LocationIcon' alt="Location icon">
+                            </div>
+                            <div>
+                                <h2 class='text-3xl'>
+                                    Head offices
+                                </h2>
+                                <p>
+                                    Gedung Lorem, Jl. Subagio No. 69, Indonesia
+                                </p>
+                            </div>
+                        </CardVue>
+                        <CardVue class='flex flex-row items-center p-4 gap-4'>
+                            <div class='bg-pink-600 rounded-full p-2 w-18 h-18'>
+                                <img :src='MailIcon' alt="Mail icon" class='w-12'>
+                            </div>
+                            <div>
+                                <h2 class='text-3xl'>
+                                    Mail for information
+                                </h2>
+                                <p>
+                                    marketing.lizra@mail.com
+                                </p>
+                            </div>
+                        </CardVue>
+                    </div>
                     <ConsultForm />
                 </div>
             </section>
