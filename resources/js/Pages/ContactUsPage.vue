@@ -7,6 +7,7 @@ import TelephoneIcon from '@/Assets/Icons/telephone.png';
 
 import Layout from '@/Layout/Layout.vue';
 import CardVue from '@/Shared/Card.vue';
+import ConsultationForm from '@/Components/ConsultForm.vue';
 </script>
 
 <template>
@@ -65,6 +66,14 @@ import CardVue from '@/Shared/Card.vue';
                             +62-888-8888-8888
                         </p>
                     </div>
+                </CardVue>
+            </section>
+            <section class="flex flex-col justify-center items-center">
+                <h2 class='text-3xl tracking-widest'>
+                    Send us a messages
+                </h2>
+                <CardVue>
+                    <ConsultationForm />
                 </CardVue>
             </section>
         </div>
