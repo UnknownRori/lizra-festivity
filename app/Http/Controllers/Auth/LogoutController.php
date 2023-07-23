@@ -19,8 +19,7 @@ class LogoutController extends Controller
 
         return redirect()
             ->route('auth.view')
-            ->with('message', [
-                'type' => MessageTypeEnum::Info,
+            ->with('success', [
                 'body' => 'Logout Success',
             ]);
     }

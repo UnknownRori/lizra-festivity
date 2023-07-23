@@ -4,8 +4,6 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Requests\LoginRequest;
 use App\Http\Controllers\Controller;
-use App\Enums\MessageTypeEnum;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Inertia\Response;
 
@@ -22,7 +20,7 @@ class LoginController extends Controller
     /**
      * Handle the incoming request.
      */
-    public function post(LoginRequest $request): RedirectResponse
+    public function post(LoginRequest $request)
     {
         $validated = $request->validated();
 
@@ -31,11 +29,8 @@ class LoginController extends Controller
                 ->route('app.dashboard');
         }
 
-        return redirect()
-            ->route('auth.view')
-            ->with('message', [
-                'type' => MessageTypeEnum::Error,
-                'body' => 'Invalid password or username',
-            ]);
+        session()->flash('error', [
+            'body' => 'Invalid password or username',
+        ]);
     }
 }
