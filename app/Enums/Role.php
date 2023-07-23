@@ -10,6 +10,7 @@ enum Role: string
 
     case Admin  = "Admin";
     case Editor = "Editor";
+    case User = "User";
 
     public function isAdmin(): bool
     {
@@ -19,5 +20,10 @@ enum Role: string
     public function isEditor(): bool
     {
         return $this == Role::Editor;
+    }
+
+    public function isUser(): bool
+    {
+        return $this == Role::User;
     }
 }

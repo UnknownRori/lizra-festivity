@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsController;
@@ -25,11 +27,16 @@ Route::resource('news', NewsController::class)->only(['index', 'show'])->scoped(
 ]);
 
 Route::middleware('guest')->group(function () {
-    //
+    Route::name('auth.')->group(function () {
+        Route::get('/app/login', [LoginController::class, 'view'])->name('auth.view');
+        Route::post('/app/login', [LoginController::class, 'post'])->name('auth.login');
+    });
 });
 
 Route::middleware('auth')->group(function () {
     Route::resource('news', NewsController::class)->except(['index', 'show'])->scoped([
         'news' => 'slug',
     ]);
+
+    Route::post('/app/logout', LogoutController::class)->name('auth.logout');
 });
