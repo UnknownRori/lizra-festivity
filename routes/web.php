@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\ContactUsController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
@@ -27,9 +28,9 @@ Route::resource('news', NewsController::class)->only(['index', 'show'])->scoped(
 ]);
 
 Route::middleware('guest')->group(function () {
-    Route::name('auth.')->group(function () {
-        Route::get('/app/login', [LoginController::class, 'view'])->name('auth.view');
-        Route::post('/app/login', [LoginController::class, 'post'])->name('auth.login');
+    Route::name('auth.')->prefix('/app')->group(function () {
+        Route::get('/login', [LoginController::class, 'view'])->name('view');
+        Route::post('/login', [LoginController::class, 'post'])->name('login');
     });
 });
 
@@ -39,4 +40,7 @@ Route::middleware('auth')->group(function () {
     ]);
 
     Route::post('/app/logout', LogoutController::class)->name('auth.logout');
+    Route::prefix('/app')->name('app.')->group(function () {
+        Route::get('/dashboard', DashboardController::class)->name('dashboard');
+    });
 });
