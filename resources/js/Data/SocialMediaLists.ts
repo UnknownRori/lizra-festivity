@@ -8,7 +8,7 @@ import Linkedin from '@/Assets/Icons/linkedin.webp'
 
 export default [
     { src: Whatsapp, alt: 'Whatsapp', href: '#' },
-    { src: Gmail, alt: 'Gmail', href: '#' },
+    { src: Gmail, alt: 'Gmail', href: 'mailto:UnknownRori@proton.me' },
     { src: Instagram, alt: 'Instagram', href: 'https://www.instagram.com/unknownrori/' },
     { src: Facebook, alt: 'Facebook', href: '#' },
     { src: Twitter, alt: 'Facebook', href: 'https://twitter.com/UnknownRori' },
