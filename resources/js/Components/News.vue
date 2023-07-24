@@ -27,7 +27,7 @@ defineProps<{ news: NewsType }>();
             </p>
 
             <div class='mt-4'>
-                <OutlineButton type='anchor' :href='route("news.show", { slug: $props.news.slug })' class='text-black'>
+                <OutlineButton type='anchor' :href='route("news.show", { news: $props.news.slug })' class='text-black'>
                     Learn More
                 </OutlineButton>
             </div>
