@@ -5,6 +5,7 @@ import { NewsPaginator } from '@/types/NewsType';
 
 import Layout from '@/Layout/Layout.vue';
 import NewsListVue from '@/Components/NewsLists.vue';
+import PaginationButton from '@/Shared/PaginationButton.vue';
 
 defineProps<{
     news: NewsPaginator
@@ -17,6 +18,10 @@ defineProps<{
         <main>
             <section class='p-8'>
                 <NewsListVue :news='news.data' />
+            </section>
+
+            <section class='flex flex-row justify-center items-center p-2'>
+                <PaginationButton :links='$props.news.links' />
             </section>
         </main>
     </Layout>
