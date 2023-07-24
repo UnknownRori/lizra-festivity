@@ -21,6 +21,6 @@ class DatabaseSeeder extends Seeder
             'password' => 'UnknownRori',
         ]);
 
-        News::factory(4)->for($user)->create();
+        News::factory(28)->for($user)->create();
     }
 }
