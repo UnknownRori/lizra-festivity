@@ -5,6 +5,7 @@ import { Ziggy } from './ziggy';
 import Moment from './Plugins/Moment';
 
 import '../css/app.css';
+import '../css/scroll.css';
 import './bootstrap';
 
 createInertiaApp({
