@@ -42,7 +42,9 @@ class NewsController extends Controller
      */
     public function show(News $news)
     {
-        dd($news);
+        return inertia('News/Show', [
+            'news' => $news
+        ]);
     }
 
     /**
