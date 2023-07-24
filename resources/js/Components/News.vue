@@ -19,7 +19,10 @@ defineProps<{ news: NewsType }>();
             </h2>
 
             <span class='text-sm'>
-                {{ $moment($props.news.created_at).fromNow() }}
+                {{ $moment($props.news.created_at) < $moment().subtract(2, 'week')
+                    ? $moment($props.news.created_at).format('dddd, MMMM YYYY, h:mm') :
+                    $moment($props.news.created_at).fromNow() }}
+
             </span>
 
             <p class='text-lg'>
