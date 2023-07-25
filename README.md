@@ -2,6 +2,17 @@
 
 Lizra Festivity is a simple site for event organizer company to manage it's news, and blogs, probably in future it will have time management system to allows them to manage their time and automatic system to review the accepted contract.
 
+## 🚀 Planned Features
+
+| Name                 |   Done    |
+|----------------------|-----------|
+| View Posts as client |    💹     |
+| Manage Posts         |    ❌     |
+| Manage Assets        |    ❌     |
+| Manage Role          |    ❌     |
+| WYSIWYG Editor       |    ❌     |
+| View posts as editor |    ❌     |
+
 ## 🛠️ Development
 
 ### Requirements
@@ -58,10 +69,10 @@ composer install
 # Generate the key
 php artisan key:generate
 
-# Start the server
+# Start the php server
 php artisan serve 
 
-# Start another powershell
+# Start another powershell to run JavaScript server
 npm run dev
 ```
 
@@ -71,7 +82,7 @@ npm run dev
 # If you have mprocs
 mprocs
 
-# If you don't have just start the server normaly
+# If you don't have just start the server normally
 php artisan serve & npm run dev
 ```
 
