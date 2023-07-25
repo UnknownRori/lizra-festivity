@@ -14,9 +14,9 @@ defineProps<{
 
 <template>
     <section class='flex flex-col gap-2 justify-center items-center w-full px-8'>
-        <div>
-
-        </div>
+        <header class='w-full p-2'>
+            <h2 class='text-3xl text-left'>List Posts</h2>
+        </header>
         <table class='border-2 border-black p-2 w-full'>
             <thead class='text-white bg-gray-700'>
                 <tr class='grid grid-cols-[4rem_auto_8rem_8rem] divide-x-2 divide-gray-400 text-center'>
