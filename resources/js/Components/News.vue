@@ -2,6 +2,7 @@
 import DummyImage from '@/Assets/Images/presentation-event.jpg';
 
 import Card from '@/Shared/Card.vue';
+import TimeCard from '@/Shared/TimeCard.vue';
 import OutlineButton from '@/Shared/OutlinePrimaryButton.vue';
 
 import type NewsType from '@/types/NewsType';
@@ -18,15 +19,10 @@ defineProps<{ news: NewsType }>();
                 {{ $props.news.title }}
             </h2>
 
-            <span class='text-sm'>
-                {{ $moment($props.news.created_at) < $moment().subtract(2, 'week')
-                    ? $moment($props.news.created_at).format('dddd, MMMM YYYY, h:mm') :
-                    $moment($props.news.created_at).fromNow() }}
-
-            </span>
+            <TimeCard :time='$props.news.created_at' />
 
             <p class='text-lg'>
-                {{ $props.news.body }}
+                {{ $props.news.description }}
             </p>
 
             <div class='mt-4'>
