@@ -12,6 +12,8 @@ class NewsObserver
     public function creating(News $news): void
     {
         $news->slug = str($news->title)->slug();
+
+        $news->description = strip_tags(str($news->body)->substr(0, 255));
     }
 
     /**

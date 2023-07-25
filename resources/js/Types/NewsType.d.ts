@@ -5,6 +5,7 @@ type NewsType = {
     thumbnail: string,
     title: string,
     body: string,
+    description: string,
     created_at: string,
     updated_at: string,
 };

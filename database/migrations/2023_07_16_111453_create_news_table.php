@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('thumbnail', 255)->nullable();
             $table->string('title', 255);
             $table->text('body');
+            $table->string('description', 255);
             $table->enum('publish_status', PublishStatus::toArray())->default(PublishStatus::Draft->value);
             $table->timestamps();
         });

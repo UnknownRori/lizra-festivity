@@ -13,7 +13,10 @@ class HomeController extends Controller
     public function __invoke(Request $request)
     {
         return inertia('HomePage', [
-            'news' => News::take(3)->get(['slug', 'thumbnail', 'title', 'body', 'created_at', 'updated_at']),
+            'news' => News::select([
+                'slug', 'thumbnail', 'title', 'description',
+                'body', 'created_at', 'updated_at'
+            ])->take(3)->get(),
         ]);
     }
 }
