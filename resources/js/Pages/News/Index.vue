@@ -6,6 +6,7 @@ import { NewsPaginator } from '@/types/NewsType';
 import Layout from '@/Layout/Layout.vue';
 import NewsListVue from '@/Components/NewsLists.vue';
 import PaginationButton from '@/Shared/PaginationButton.vue';
+import JumpToTopVue from '@/Components/JumpToTop.vue';
 
 defineProps<{
     news: NewsPaginator
@@ -14,6 +15,7 @@ defineProps<{
 
 <template>
     <Head title='Events List' />
+    <JumpToTopVue />
     <Layout>
         <main>
             <section class='p-8'>

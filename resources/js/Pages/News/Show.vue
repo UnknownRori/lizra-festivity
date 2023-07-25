@@ -5,6 +5,8 @@ import DummyImage from '@/Assets/Images/presentation-event.jpg';
 import type News from '@/types/NewsType';
 
 import Layout from '@/Layout/Layout.vue';
+import JumpToTopVue from '@/Components/JumpToTop.vue';
+import TimeCardVue from '@/Shared/TimeCard.vue';
 
 defineProps<{
     news: News
@@ -13,6 +15,7 @@ defineProps<{
 
 <template>
     <Head :title='$props.news.title' />
+    <JumpToTopVue />
     <Layout>
         <main class='p-12'>
             <header class='flex flex-col items-center'>
@@ -22,8 +25,9 @@ defineProps<{
 
                 <img :src='$props.news.thumbnail ?? DummyImage' :alt='$props.news.alt' class='w-1/2 rounded-md'>
             </header>
+            <TimeCardVue :time='$props.news.created_at' />
 
-            <section v-html='$props.news.body'>
+            <section class='m-4' v-html='$props.news.body'>
             </section>
         </main>
     </Layout>
