@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\PublishStatus;
 use App\Models\News;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,7 @@ class HomeController extends Controller
             'news' => News::select([
                 'slug', 'thumbnail', 'title', 'description',
                 'body', 'created_at', 'updated_at'
-            ])->take(3)->get(),
+            ])->where('publish_status', PublishStatus::Published->value)->take(3)->get(),
         ]);
     }
 }
