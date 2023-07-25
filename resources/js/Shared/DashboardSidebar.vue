@@ -1,5 +1,7 @@
 <script setup lang='ts'>
 import Title from '@/Assets/title-dark.png'
+
+import PostMenu from '@/Components/Dashboard/PostMenu.vue';
 </script>
 
 <template>
@@ -8,13 +10,8 @@ import Title from '@/Assets/title-dark.png'
             <img :src="Title" alt="Lizra Festivity" class='w-64'>
         </header>
 
-        <section>
-            <ul>
-                <li>
-                    <!--  -->
-                </li>
-            </ul>
-        </section>
+        <PostMenu />
+
     </div>
 </template>
 
