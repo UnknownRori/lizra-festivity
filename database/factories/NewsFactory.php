@@ -16,9 +16,17 @@ class NewsFactory extends Factory
      */
     public function definition(): array
     {
+        $body = [];
+
+        $body[] = $this->faker->paragraph(6);
+        $body[] = $this->faker->paragraph(6);
+        $body[] = $this->faker->paragraph(6);
+        $body[] = $this->faker->paragraph(6);
+
         return [
             'title' => $this->faker->text(64),
-            'body' => $this->faker->paragraph(),
+            // 'body' => collect($this->faker->paragraphs(6))->implode("<br><br>"),
+            'body' => collect($body)->implode('<br><br>'),
         ];
     }
 }
