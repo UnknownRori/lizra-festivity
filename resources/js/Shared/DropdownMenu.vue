@@ -16,7 +16,7 @@ const { toggle, style, state } = useToggleAnimation({
             <slot name='title' />
         </button>
 
-        <div :class='`opacity-0 pointer-events-none ${style} duration-500 fixed p-4 bg-white shadow-md`'>
+        <div :class='`opacity-0 pointer-events-none ${style} duration-500 fixed p-4 bg-white shadow-md z-10`'>
             <slot />
         </div>
     </div>
