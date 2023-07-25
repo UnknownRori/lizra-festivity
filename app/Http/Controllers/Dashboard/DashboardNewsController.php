@@ -65,8 +65,15 @@ class DashboardNewsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(News $news)
     {
-        //
+        if ($news->delete())
+            return redirect()->route('app.news.index')->with('success', [
+                'body' => 'Successfully delete a news'
+            ]);
+
+        return redirect()->route('app.news.index')->with('error', [
+            'body' => 'Failed to delete a news',
+        ]);
     }
 }
