@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\ContactUsController;
+use App\Http\Controllers\Dashboard\DashboardNewsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsController;
@@ -35,12 +36,15 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::resource('news', NewsController::class)->except(['index', 'show'])->scoped([
-        'news' => 'slug',
-    ]);
 
-    Route::post('/app/logout', LogoutController::class)->name('auth.logout');
-    Route::prefix('/app')->name('app.')->group(function () {
-        Route::get('/dashboard', DashboardController::class)->name('dashboard');
+    Route::prefix('/app')->group(function () {
+
+        Route::post('/app/logout', LogoutController::class)->name('auth.logout');
+        Route::prefix('/dashboard')->name('app.')->group(function () {
+            Route::get('/', DashboardController::class)->name('dashboard');
+            Route::resource('/news', DashboardNewsController::class)->scoped([
+                'news' => 'slug',
+            ]);
+        });
     });
 });
