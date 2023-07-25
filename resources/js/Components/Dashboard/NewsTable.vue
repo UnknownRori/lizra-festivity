@@ -1,6 +1,7 @@
 <script setup lang='ts'>
 import { Link } from '@inertiajs/vue3';
 
+import PrimaryButton from '@/Shared/PrimaryButton.vue';
 import PaginationButton from '@/Shared/PaginationButton.vue';
 import DropdownMenu from '@/Shared/DropdownMenu.vue';
 import DeleteNews from './DeleteNews.vue';
@@ -40,11 +41,12 @@ defineProps<{
                     <td class='flex items-center justify-center border-[0.05rem] border-black py-1 px-2'>
                         <DropdownMenu>
                             <template #title>
-                                <div class='flex justify-center items-center gap-2'>
+                                <div
+                                    class='flex justify-center items-center gap-2 bg-red-700 hover:bg-red-500 duration-500 rounded-md text-white px-1'>
                                     <span>
                                         Action
                                     </span>
-                                    <svg class="h-8 w-8 text-black" width="24" height="24" viewBox="0 0 24 24"
+                                    <svg class="h-8 w-8 text-whit" width="24" height="24" viewBox="0 0 24 24"
                                         stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
                                         stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" />
