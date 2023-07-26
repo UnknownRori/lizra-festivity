@@ -7,10 +7,7 @@ use Illuminate\Support\Facades\Storage;
 
 class NewsObserver
 {
-    /**
-     * Handle the News "creating" event
-     */
-    public function creating(News $news): void
+    private function generateHiddenAttribute(News $news): void
     {
         $news->slug = str($news->title)->slug();
 
@@ -22,11 +19,27 @@ class NewsObserver
     }
 
     /**
+     * Handle the News "creating" event
+     */
+    public function creating(News $news): void
+    {
+        $this->generateHiddenAttribute($news);
+    }
+
+    /**
      * Handle the News "created" event.
      */
     public function created(News $news): void
     {
         //
+    }
+
+    /**
+     * Handle the News "updating" event.
+     */
+    public function updating(News $news): void
+    {
+        $this->generateHiddenAttribute($news);
     }
 
     /**
