@@ -27,6 +27,14 @@ onMounted(() => {
             },
         },
     });
+
+    if (editor.value == null) {
+        // TODO : do Error stuff
+    }
+
+    if (props.modelValue != editor.value.getHTML()) {
+        emits('update:modelValue', editor.value.getHTML());
+    }
 })
 
 onBeforeUnmount(() => {
