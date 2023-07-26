@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\Enums\PublishStatus;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\NewsStoreRequest;
 use App\Models\News;
+use App\Services\ThumbnailService;
 use Illuminate\Http\Request;
 use Inertia\Response;
 
@@ -27,15 +30,39 @@ class DashboardNewsController extends Controller
      */
     public function create()
     {
-        return inertia('Dashboard/NewsCreate');
+        return inertia('Dashboard/NewsCreate', [
+            'publish_status' => PublishStatus::toArray(),
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(NewsStoreRequest $request, ThumbnailService $thumbnailService)
     {
-        //
+        $validated = $request->validated();
+        $validated['thumbnail'] = $thumbnailService->save($validated['thumbnail']);
+
+        if ($validated['thumbnail'] == false) {
+            session()->flash('error', [
+                'body' => 'Failed to store the thumbnail',
+            ]);
+
+            return;
+        }
+
+        if (auth()->user()->news()->create($validated)) {
+            return redirect()
+                ->route('app.news.index')
+                ->with('success', [
+                    'body' => 'News created successfully'
+                ]);
+        }
+
+
+        session()->flash('error', [
+            'body' => 'Invalid input',
+        ]);
     }
 
     /**
