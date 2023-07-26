@@ -12,6 +12,7 @@ Lizra Festivity is a simple site for event organizer company to manage it's news
 | Manage Role          |    ❌     |
 | WYSIWYG Editor       |    ✅     |
 | OpenAI Integration   |    ❌     |
+| Translations         |    ❌     |
 
 ## 🛠️ Development
 
