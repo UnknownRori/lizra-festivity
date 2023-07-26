@@ -33,7 +33,7 @@ onMounted(() => {
     }
 
     if (props.modelValue != editor.value.getHTML()) {
-        emits('update:modelValue', editor.value.getHTML());
+        editor.value.commands.setContent(props.modelValue)
     }
 })
 
