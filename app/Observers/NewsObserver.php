@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Models\News;
+use Illuminate\Support\Facades\Storage;
 
 class NewsObserver
 {
@@ -14,6 +15,10 @@ class NewsObserver
         $news->slug = str($news->title)->slug();
 
         $news->description = strip_tags(str($news->body)->substr(0, 255));
+
+        if (!is_null($news->thumbnail)) {
+            $news->thumbnail_url = Storage::url($news->thumbnail);
+        }
     }
 
     /**

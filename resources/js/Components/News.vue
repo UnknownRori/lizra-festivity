@@ -12,7 +12,7 @@ defineProps<{ news: NewsType }>();
 
 <template>
     <Card class='flex md:flex-row sm:flex-col gap-2'>
-        <img :src='$props.news.thumbnail ?? DummyImage' :alt='$props.news.title'
+        <img :src='$props.news.thumbnail_url ?? DummyImage' :alt='$props.news.title'
             class='md:w-[300px] sm:w-full h-[300px] text-center object-cover'>
         <div class='flex flex-col gap-1'>
             <h2 class='text-2xl font-bold'>

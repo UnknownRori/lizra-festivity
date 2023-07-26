@@ -15,9 +15,9 @@ class HomeController extends Controller
     {
         return inertia('HomePage', [
             'news' => News::select([
-                'slug', 'thumbnail', 'title', 'description',
+                'slug', 'title', 'description', 'thumbnail_url',
                 'body', 'created_at', 'updated_at'
-            ])->where('publish_status', PublishStatus::Published->value)->take(3)->get(),
+            ])->orderBy('created_at', 'desc')->where('publish_status', PublishStatus::Published->value)->take(3)->get(),
         ]);
     }
 }

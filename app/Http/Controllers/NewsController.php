@@ -15,9 +15,9 @@ class NewsController extends Controller
     {
         return inertia('News/Index', [
             'news' => News::select([
-                'slug', 'thumbnail', 'title', 'description',
+                'slug', 'thumbnail_url', 'title', 'description',
                 'body', 'created_at', 'updated_at'
-            ])->paginate(6),
+            ])->orderBy('created_at', 'desc')->paginate(6),
         ]);
     }
 

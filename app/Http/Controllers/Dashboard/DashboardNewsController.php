@@ -19,9 +19,9 @@ class DashboardNewsController extends Controller
     {
         return inertia('Dashboard/NewsIndex', [
             'news' => News::select([
-                'slug', 'thumbnail', 'title', 'description', 'publish_status',
+                'slug', 'thumbnail_url', 'title', 'description', 'publish_status',
                 'body', 'created_at', 'updated_at'
-            ])->paginate(8),
+            ])->orderBy('created_at', 'desc')->paginate(8),
         ]);
     }
 

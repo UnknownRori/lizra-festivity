@@ -4,7 +4,7 @@ type PublishStatus = 'Draft' | 'Published';
 
 type NewsType = {
     slug: string,
-    thumbnail: string,
+    thumbnail_url: string,
     title: string,
     body: string,
     description: string,
