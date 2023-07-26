@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Dashboard;
 use App\Enums\PublishStatus;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\NewsStoreRequest;
+use App\Http\Requests\UpdateNewsRequest;
 use App\Models\News;
 use App\Services\ThumbnailService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Inertia\Response;
 
 class DashboardNewsController extends Controller
@@ -41,14 +43,16 @@ class DashboardNewsController extends Controller
     public function store(NewsStoreRequest $request, ThumbnailService $thumbnailService)
     {
         $validated = $request->validated();
-        $validated['thumbnail'] = $thumbnailService->save($validated['thumbnail']);
+        if (isset($validated['thumbnail'])) {
+            $validated['thumbnail'] = $thumbnailService->save($validated['thumbnail']);
 
-        if ($validated['thumbnail'] == false) {
-            session()->flash('error', [
-                'body' => 'Failed to store the thumbnail',
-            ]);
+            if ($validated['thumbnail'] == false) {
+                session()->flash('error', [
+                    'body' => 'Failed to store the thumbnail',
+                ]);
 
-            return;
+                return;
+            }
         }
 
         if (auth()->user()->news()->create($validated)) {
@@ -76,17 +80,49 @@ class DashboardNewsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(News $news)
     {
-        //
+        return inertia('Dashboard/NewsEdit', [
+            'news' => $news,
+            'publish_status' => PublishStatus::toArray(),
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateNewsRequest $request, News $news, ThumbnailService $thumbnailService)
     {
-        //
+        $validated = $request->validated();
+
+        if (array_key_exists('thumbnail', $validated)) {
+            if ($thumbnailService->delete($news->thumbnail)) {
+                Log::info("FAILED TO DELETE IMAGE : {$news->thumbnail}");
+            }
+
+            $validated['thumbnail'] = $thumbnailService->save($validated['thumbnail']);
+
+            if ($validated['thumbnail'] == false) {
+                session()->flash('error', [
+                    'body' => 'Failed to store the thumbnail',
+                ]);
+
+                return;
+            }
+        }
+
+        $news->fill($validated);
+        if ($news->save()) {
+            return redirect()
+                ->route('app.news.index')
+                ->with('success', [
+                    'body' => "{$news->title} has been successfully edited"
+                ]);
+        }
+
+        session()->flash('error', [
+            'body' => 'Failed to edit',
+        ]);
     }
 
     /**
