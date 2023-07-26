@@ -7,14 +7,15 @@ use Illuminate\Support\Facades\Storage;
 
 class ThumbnailService
 {
-    const DEFAULT_PATH = 'thumbnail';
-    const VISIBILITY = 'public';
+    const DEFAULT_PATH = 'public/thumbnail';
 
     public function save(UploadedFile $file): string|bool
     {
-        $defaultpath = self::DEFAULT_PATH;
+        return $file->store(self::DEFAULT_PATH);
+    }
 
-        $path = "{$defaultpath}";
-        return Storage::putFile($path, $file, self::VISIBILITY);
+    public function delete(string $filepath): bool
+    {
+        return Storage::delete($filepath);
     }
 }
