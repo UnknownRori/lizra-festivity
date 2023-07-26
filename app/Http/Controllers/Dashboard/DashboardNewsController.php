@@ -27,7 +27,7 @@ class DashboardNewsController extends Controller
      */
     public function create()
     {
-        //
+        return inertia('Dashboard/NewsCreate');
     }
 
     /**
