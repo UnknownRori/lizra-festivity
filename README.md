@@ -47,6 +47,9 @@ composer install
 # Generate the key
 php artisan key:generate
 
+# Symlink with storage
+php artisan storage:link
+
 # Start the server
 php artisan serve & npm run dev
 ```
@@ -70,6 +73,9 @@ composer install
 
 # Generate the key
 php artisan key:generate
+
+# Symlink with storage
+php artisan storage:link
 
 # Start the php server
 php artisan serve 
