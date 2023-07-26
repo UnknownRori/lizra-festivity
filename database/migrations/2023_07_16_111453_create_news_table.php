@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('slug', 255)->unique();
             $table->string('thumbnail', 255)->nullable();
+            $table->string('thumbnail_url', 255)->nullable();
             $table->string('title', 255);
             $table->text('body');
             $table->string('description', 255);
