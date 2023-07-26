@@ -1,6 +1,6 @@
 <script setup lang='ts'>
-import { ref, Ref } from 'vue';
-import { useForm } from '@inertiajs/vue3';
+import { ref, Ref, onMounted } from 'vue';
+import { useForm, router } from '@inertiajs/vue3';
 
 import CardVue from '@/Shared/Card.vue';
 import Editor from '@/Components/Editor.vue'
@@ -10,10 +10,12 @@ import { PublishStatus } from '@/types/NewsType';
 
 import NewsType from '@/Types/NewsType';
 
-defineProps<{
+const props = defineProps<{
     title: string,
     publish_status: PublishStatus,
+    endpoint: string,
     news?: NewsType
+    update?: boolean,
 }>();
 
 const urlImgPreview: Ref<null | string> = ref(null);
@@ -30,6 +32,12 @@ const newPost = useForm<{
     publish_status: 'Draft',
 });
 
+if (props.news != null) {
+    newPost.title = props.news.title;
+    newPost.publish_status = props.news.publish_status;
+    newPost.body = props.news.body
+}
+
 function previewImage(event: Event) {
     const target = (event.target as HTMLInputElement);
 
@@ -45,6 +53,13 @@ function submit(url: string) {
 
     newPost.thumbnail = imgRef.value.files[0];
 
+    if (props.update) {
+        return router.post(url, {
+            _method: 'patch',
+            ...(newPost.data()),
+        });
+    }
+
     newPost.post(url);
 }
 </script>
@@ -53,10 +68,10 @@ function submit(url: string) {
     <CardVue class='w-full h-full flex flex-col gap-2 p-8'>
         <header>
             <h2 class='text-2xl'>
-                Create new Post
+                {{ $props.title }}
             </h2>
         </header>
-        <form @submit.prevent='submit(route("app.news.store"))' class='flex flex-col gap-4'>
+        <form @submit.prevent='submit($props.endpoint)' method='POST' class='flex flex-col gap-4'>
             <div class='w-full'>
                 <label for="title">Title</label>
                 <InputVue v-model='newPost.title' class='border-gray-500 w-full' placeholder="Enter post's title"
@@ -64,7 +79,7 @@ function submit(url: string) {
             </div>
             <div class="w-full flex flex-col">
                 <label for="publish-status">Status</label>
-                <select v-model='newPost.publish_status' name="publish-status" id="publish-status"
+                <select v-model='newPost.publish_status' name="publish-status" id="publish-status" required
                     class='p-2 border-2 border-gray-500 rounded-md'>
                     <option v-for='status in $props.publish_status' :value="status">{{ status }}</option>
                 </select>
@@ -73,7 +88,7 @@ function submit(url: string) {
                 <label for="thumbnail">Thumbnail</label>
                 <!-- TODO : Refactor this to use the InputVue Component -->
                 <input @change='previewImage' ref='imgRef' type='file' class='border-gray-500 w-full'
-                    placeholder="Enter post's title" required>
+                    placeholder="Enter post's title">
                 <!-- <InputVue @change='previewImage' ref='imgRef' v-model='newPost.thumbnail' type='file'
                             class='border-gray-500 w-full' placeholder="Enter post's title" required /> -->
                 <progress v-if="newPost.progress" :value="newPost.progress.percentage" max="100">

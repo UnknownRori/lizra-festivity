@@ -10,13 +10,14 @@ defineProps<{
     'publish_status': PublishStatus,
 }>();
 
+const title = 'Create new post';
 </script>
 
 <template>
-    <Head title='Create new Posts' />
+    <Head :title='title' />
     <DashboardLayout>
         <main class='w-4/5 min-h-4/5'>
-            <NewsForm title='Create new post' :publish_status='$props.publish_status' />
+            <NewsForm :endpoint='route("app.news.store")' :title='title' :publish_status='$props.publish_status' />
         </main>
     </DashboardLayout>
 </template>
