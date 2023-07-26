@@ -6,7 +6,7 @@ import PostMenu from '@/Components/Dashboard/PostMenu.vue';
 </script>
 
 <template>
-    <div class='flex flex-col gap-4 bg-slate-900 text-white p-4 items-center h-[100vh]'>
+    <div class='fixed flex flex-col gap-4 bg-slate-900 text-white p-4 items-center w-64 min-h-[100vh]'>
         <header>
             <Link :href='route("app.dashboard")'>
             <img :src="Title" alt="Lizra Festivity" class='w-64'>
