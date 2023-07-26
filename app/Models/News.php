@@ -12,6 +12,8 @@ class News extends Model
 {
     use HasFactory, HasUuids;
 
+    protected $guarded = ['slug'];
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
