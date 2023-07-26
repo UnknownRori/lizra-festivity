@@ -8,10 +8,12 @@ import TelephoneIcon from '@/Assets/Icons/telephone.png';
 import Layout from '@/Layout/Layout.vue';
 import CardVue from '@/Shared/Card.vue';
 import ConsultationForm from '@/Components/ConsultForm.vue';
+import JumpToTop from '@/Components/JumpToTop.vue';
 </script>
 
 <template>
     <Head title='Contact us' />
+    <JumpToTop />
     <Layout>
         <div class='relative h-[400px]'>
             <div
